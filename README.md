@@ -27,5 +27,5 @@ $ kubectl apply -f 05-nginx-ingress.yaml
 
 3. Configure A Record in AWS Route53 with the DNS value of NLB
 
-4. Test with the URLs 'http://subdomain.mydomain.com/bluesvc', http://subdomain.mydomain.com/redsvc
+4. Test with the URLs 'http://subdomain.mydomain.com/bluesvc', 'http://subdomain.mydomain.com/redsvc'
 
