@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-test
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+    - hosts:
+      - dev.kops.ust-global-lab.com
+      # tls-secret should be created before applying ingress 
+      secretName: tls-secret
+  rules:
+    - host: dev.kops.ust-global-lab.com
+      http:
+        paths:
+        - path: /bluesvc
+          backend:
+            serviceName: blue-svc
+            servicePort: 5678
+        - path: /redsvc
+          backend:
+            serviceName: red-svc
+            servicePort: 5678
