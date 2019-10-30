@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: red
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: red
+  template:
+    metadata:
+      labels:
+        app: red
+    spec:
+      containers:
+      - name: red
+        image: hashicorp/http-echo
+        args:
+        - "-text=<body bgcolor='#e6adbc'><h3>Red Svc </h3><br>path:/redsvc</body>"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-svc
+  labels:
+    app: red
+spec:
+  ports:
+  - port: 5678
+  selector:
+    app: red
