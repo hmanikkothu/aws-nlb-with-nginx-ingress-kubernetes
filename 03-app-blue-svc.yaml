@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blue
+  template:
+    metadata:
+      labels:
+        app: blue
+    spec:
+      containers:
+      - name: blue
+        image: hashicorp/http-echo
+        args:
+        - "-text=<body bgcolor='#add8e6'><h3>Blue Svc</h3> <br>path:/bluesvc</body>"
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-svc
+  labels:
+    app: blue
+spec:
+  ports:
+  - port: 5678
+  selector:
+    app: blue
