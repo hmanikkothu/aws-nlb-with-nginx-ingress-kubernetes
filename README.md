@@ -13,7 +13,7 @@ $ kubectl create secret tls tls-secret --key tls.key --cert tls.crt
 2. Apply kube manifests
 
 ``` bash
-$ kubectl apply -f 01-mandatory-ngnix-obj.yaml
+$ kubectl apply -f 01-mandatory-ngnix-objs.yaml
 
 $ kubectl apply -f 02-aws-nlb-service.yaml
 
