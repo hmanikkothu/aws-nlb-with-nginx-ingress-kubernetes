@@ -29,3 +29,6 @@ $ kubectl apply -f 05-nginx-ingress.yaml
 
 4. Test with the URLs 'http://subdomain.mydomain.com/bluesvc', 'http://subdomain.mydomain.com/redsvc'
 
+
+
+### Related article - https://medium.com/manikkothu/ingress-ngnix-with-aws-network-load-balancer-ed0fb6386e4a
